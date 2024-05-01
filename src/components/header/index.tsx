@@ -1,5 +1,5 @@
 import CartIcon from '../../assets/CartIcon.svg'
-import * as S from './style'
+import * as S from './styles'
 
 export const Header = () => {
   return (
@@ -10,7 +10,7 @@ export const Header = () => {
       </S.Tittle>
       <S.CartButton>
         <img src={CartIcon} alt="" />
-        <span>99+</span>
+        <span>0</span>
       </S.CartButton>
     </S.Header>
   )
