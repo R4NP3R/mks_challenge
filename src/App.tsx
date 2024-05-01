@@ -6,10 +6,10 @@ import { GlobalCSS } from './styles'
 export function App() {
   return (
     <>
-    <GlobalCSS/>
-    <Header/>
-    <ProductSection/>
-    <Footer/>
+      <GlobalCSS/>
+      <Header/>
+      <ProductSection/>
+      <Footer/>
     </>
   )
 }

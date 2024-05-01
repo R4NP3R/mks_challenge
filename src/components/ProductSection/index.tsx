@@ -1,22 +1,30 @@
-import AppleWatch from '../../assets/apple-watch.png'
-import shoppingBag from '../../assets/shopping-bag.svg'
-import * as S from './styles'
+
+import shoppingBag from '../../assets/shopping-bag.svg';
+import { getProducts } from '../../hooks/getProducts';
+import { LoadingIcon } from '../loadingIcon';
+import * as S from './styles';
+
 
 export const ProductSection = () => {
+  const {products, isLoading } = getProducts()
+  
+  if (isLoading) { return <LoadingIcon/> }
+
   return (
+    
     <S.ProductSection className='container'>
-    {Array.from({length: 8}).map((_, i)=> (
+    {products?.map((product)=> (
       
-      <S.ProductContainer key={i}>
+      <S.ProductContainer key={product.id}>
         <S.ProductDetails>
         <S.ProductImage>
-          <img src={AppleWatch} alt="Product Image" />
+          <img src={product.photo} alt="Product Image" />
         </S.ProductImage>
           <div className='product-info'>
-            <p>Apple Watch Series 4 GPS</p>
-            <span>R$399</span>
+            <p>{product.name}</p>
+            <span>R${Math.trunc(product.price)}</span>
           </div>
-          <p className='product-description'>Redesigned from scratch and completely revised.</p>
+          <p className='product-description'>{product.description}</p>
         </S.ProductDetails>
         <S.BuyButton>
           <img src={shoppingBag} alt="" />

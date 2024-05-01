@@ -4,9 +4,8 @@ export const ProductSection = styled.section`
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   max-width: 1024px;
-  width: 100%;
-  margin: 0px auto;
-  margin-top: 116px;
+  margin: 0 auto;
+  margin-top: 100px;
   column-gap: 22px;
   row-gap: 32px;
 `
@@ -14,8 +13,8 @@ export const ProductSection = styled.section`
 export const ProductContainer = styled.div`
   position: relative;
   background-color: #fff;
-  width: 220px;
-  height: 285px;
+  width: 230px;
+  height: 310px;
   border-radius: 8px;
   box-shadow: 0px 2px 8px 0px #00000022;
 `
@@ -33,6 +32,9 @@ export const ProductDetails = styled.div`
     margin-bottom: 8px;
     
     p {
+      display: flex;
+      margin-right: 10px;
+      align-items: center;
       width: 124px;
       height: 38px;
       font-weight: 400;
@@ -61,16 +63,20 @@ export const ProductDetails = styled.div`
 
 `
 
-export const ProductImage = styled.div`
-  width: 100%;
+export const ProductImage = styled.div`  
   margin-top: 18px;
   margin-bottom: 14px;
   display: flex;
   justify-content: center;
+  img {
+    width: 220;
+    height: 138px;
+  }
 `
 
 export const BuyButton = styled.button`
   position: absolute;
+  cursor: pointer;
   bottom: 0px;
   background-color: #0F52BA;
   width: 100%;
