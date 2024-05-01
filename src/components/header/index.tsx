@@ -1,4 +1,3 @@
-import CartIcon from '../../assets/CartIcon.svg'
 import * as S from './styles'
 
 export const Header = () => {
@@ -8,10 +7,6 @@ export const Header = () => {
         MKS 
         <span>Sistemas</span>
       </S.Tittle>
-      <S.CartButton>
-        <img src={CartIcon} alt="" />
-        <span>0</span>
-      </S.CartButton>
     </S.Header>
   )
 }

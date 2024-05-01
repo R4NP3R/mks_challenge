@@ -24,24 +24,3 @@ export const Tittle = styled.h1`
     margin-left: 8px;
   }
 `
-
-export const CartButton = styled.button`
-  background-color: #fff;
-  width: 90px;
-  height: 45px;
-  border-radius: 8px;
-  border: none;
-  padding: 14px;
-  display: flex;
-  align-items: center;
-
-  img {
-    margin-right: 16px;
-  }
-
-  span {
-    font-weight: 700;
-    font-size: 18px;
-    line-height: 22px;
-  }
-`
