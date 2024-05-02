@@ -2,6 +2,9 @@ import styled from "styled-components";
 
 
 export const Header = styled.header`
+  position:fixed;
+  width: 100%;
+  z-index: 1;
   background-color: #0F52BA;
   height: 100px;
   display: flex;
@@ -9,7 +12,7 @@ export const Header = styled.header`
   padding: 0px 65px;
   justify-content: space-between;
 
-  @media (max-width: 380px) {
+  @media (max-width: 420px) {
     height: 48px;
     padding: 30px 20px;
   }
@@ -29,7 +32,7 @@ export const Tittle = styled.h1`
     margin-left: 8px;
   }
 
-  @media (max-width: 380px) {
+  @media (max-width: 420px) {
     font-size: 32px;
   }
 `

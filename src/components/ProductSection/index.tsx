@@ -1,13 +1,19 @@
 
+import { useContext } from 'react';
 import shoppingBag from '../../assets/shopping-bag.svg';
+import { CartContext } from '../../context/CartContext';
 import { getProducts } from '../../hooks/getProducts';
-import { LoadingIcon } from '../loadingIcon';
+import { LoadingIcon } from '../Icons/LoadingIcon';
 import * as S from './styles';
 
 
 export const ProductSection = () => {
   const {products, isLoading } = getProducts()
   
+  const { addProduct } = useContext(CartContext);
+
+
+
   if (isLoading) { return <LoadingIcon/> }
 
   return (
@@ -26,7 +32,16 @@ export const ProductSection = () => {
           </div>
           <p className='product-description'>{product.description}</p>
         </S.ProductDetails>
-        <S.BuyButton>
+        <S.BuyButton 
+        onClick={() => addProduct({
+          id: product.id,
+          name: product.name,
+          brand: product.brand,
+          description: product.description,
+          photo: product.photo,
+          price: product.price,
+          quantity: 1
+        }, product.id)}>
           <img src={shoppingBag} alt="" />
           <p>COMPRAR</p>
         </S.BuyButton>

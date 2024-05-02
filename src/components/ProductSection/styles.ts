@@ -12,9 +12,9 @@ export const ProductSection = styled.section`
   column-gap: 22px;
   row-gap: 32px;
 
-  @media (max-width: 380px) {
+  @media (max-width: 420px) {
     width: 70%;
-    padding-top: 16px;
+    padding-top: 86px;
     padding-bottom: 46px;
   }
 `
@@ -27,7 +27,7 @@ export const ProductContainer = styled.div`
   border-radius: 8px;
   box-shadow: 0px 2px 8px 0px #00000022;
 
-  @media (max-width: 380px) {
+  @media (max-width: 420px) {
     width: 100%;
     height: 330px;
   }
@@ -67,7 +67,7 @@ export const ProductDetails = styled.div`
 
     }
 
-    @media (max-width: 380px) {
+    @media (max-width: 420px) {
     justify-content: space-between;
   }
   }
