@@ -5,7 +5,7 @@ interface Props {
 }
 
 export const CartButton = styled.button`
-  position: fixed;
+  position: absolute;
   right: 65px;
   top: 25px;
   background-color: #fff;
@@ -20,12 +20,29 @@ export const CartButton = styled.button`
 
   img {
     margin-right: 16px;
+
+    @media (max-width: 380px) {
+    width: 12px;
+    margin: 0px 8px;
+    }
   }
 
   span {
     font-weight: 700;
     font-size: 18px;
     line-height: 22px;
+
+    @media (max-width: 380px) {
+    font-size: 12px;
+    }
+  }
+
+  @media (max-width: 380px) {
+    width: 52px;
+    height: 26px;
+    padding:0px;
+    right: 24px;
+    top: 18px;
   }
 `
 
@@ -35,6 +52,11 @@ export const CloseIcon = styled.img<Props>`
   top: ${(props)=> props.smallicon ? '-5px' : ''};
   right: ${(props)=> props.smallicon ? '-5px' : ''};
   width: ${(props)=> props.smallicon  ? '18px' : '38px'};
+
+  @media (max-width: 380px) {
+    right: ${(props)=> props.smallicon ? '-5px' : ''};
+    width: ${(props)=> props.smallicon  ? '25px' : '45px'};
+  }
 `
 
 export const Sidebar = styled.div`
@@ -45,7 +67,11 @@ export const Sidebar = styled.div`
   height: 100%;
   z-index: 3;
   box-shadow: -5px 0px 6px 0px #00000021;
-  padding: 36px 0px 36px 36px;
+
+  @media (max-width: 380px) {
+    grid-template-columns: 1fr;
+    width: 90%;
+  }
 `
 
 export const SidebarHeader = styled.div`
@@ -54,6 +80,7 @@ export const SidebarHeader = styled.div`
   align-items: center;
   margin-bottom: 64px;
   position: relative;
+  margin: 36px 0px 36px 36px;
 
 
   span {
@@ -68,12 +95,23 @@ export const SidebarHeader = styled.div`
   img {
     position: absolute;
     right: 36px;
+
+    @media (max-width: 380px) {
+      right: 15px;
+    }
   }
+
+  @media (max-width: 380px) {
+    margin-bottom: 12px;
+  }
+
 `
 
 export const SidebarBody = styled.div`
+  margin: 36px 0px 36px 36px;
   padding: 12px 0px;
   width: 100%;
+  overflow-y: scroll;
   height: 60vh;
 `
 
@@ -88,6 +126,14 @@ export const SidebarProduct = styled.div`
   padding: 12px;
   margin-bottom: 22px;
 
+  @media (max-width: 380px) {
+    width: 250px;
+    height:220px;
+    display: flex;
+    flex-direction: column;
+    padding: 22px 12px;
+  }
+
 `
 
 export const SidebarProductImage = styled.div`
@@ -95,6 +141,12 @@ export const SidebarProductImage = styled.div`
   img {
     width: 100%;
     height: 100%;
+  }
+
+  @media (max-width: 380px) {
+    width: 100;
+    height: 100px;
+
   }
 `
 
@@ -105,8 +157,20 @@ export const SidebarProductName = styled.span`
   font-weight: 400;
   font-size: 14px;
   line-height: 18px;
-`
 
+  @media (max-width: 380px) {
+    width: 100%;
+  }
+`
+export const SidebarProductInfo = styled.div`
+  display: flex;
+  align-items: center;
+
+  @media (max-width: 380px) {
+    width: 100%;
+    justify-content: space-between;
+  }
+`
 
 export const SidebarProductQuantity = styled.div`
   margin-left: 40px;
@@ -114,11 +178,18 @@ export const SidebarProductQuantity = styled.div`
   flex-direction: column;
   justify-content: flex-end;
   width: 50px;
-  span {
+  .text {
     font-weight: 400;
     font-size: 10px;
     line-height: 6px;
+    @media (max-width: 380px) {
+      display: none;
+    }
   }
+
+  @media (max-width: 380px) {
+    margin: 0;
+    }
   
 `
 
@@ -140,13 +211,23 @@ export const SidebarProductQuantitySelector = styled.div`
     font-weight: 400;
     font-size: 12px;
     line-height: 14px;
+
+    @media (max-width: 380px) {
+    font-size: 20px;
+    line-height: 24px;
+    padding: 0px 12px;
+  }
   }
 
   .productQuantity {
-    cursor: all-scroll;  
     border-left: 1px solid #BFBFBF;
     border-right: 1px solid #BFBFBF;
 
+  }
+
+  @media (max-width: 380px) {
+    width: 98px;
+    height: 34px;
   }
 `
 
@@ -155,6 +236,17 @@ export const SidebarProductPrice = styled.span`
   font-weight: 700;
   font-size: 14px;
   line-height: 18px;
+
+  @media (max-width: 380px) {
+    width: 84px;
+    height: 34px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #373737;
+    color: white;
+    border-radius: 4px;
+  }
 `
 
 export const SidebarProductFooter = styled.div`
@@ -176,7 +268,16 @@ export const SidebarProductsTotalPrice = styled.div`
     font-size: 28px;
     line-height: 16px;
     margin: 0px 48px;
+
+    @media (max-width: 380px) {
+      margin: 0px 28px;
+  }
 }
+
+@media (max-width: 380px) {
+    height: 65px;
+    padding: 25px 0px;
+  }
 `
 
 export const FinalizePurchaseButton = styled.button`
@@ -189,6 +290,12 @@ export const FinalizePurchaseButton = styled.button`
   font-size: 28px;
   line-height: 16px;
   border: none;
+
+  @media (max-width: 380px) {
+    height: 65px;
+    padding: 20px 0px;
+    font-size: 20px;
+  }
 `
 
 export const OpacityBackground = styled.div`

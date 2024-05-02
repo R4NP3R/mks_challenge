@@ -9,6 +9,11 @@ export const Header = styled.header`
   padding: 0px 65px;
   justify-content: space-between;
 
+  @media (max-width: 380px) {
+    height: 48px;
+    padding: 30px 20px;
+  }
+
 `
 
 export const Tittle = styled.h1`
@@ -22,5 +27,9 @@ export const Tittle = styled.h1`
     font-size: 20px;
     font-weight: 300;
     margin-left: 8px;
+  }
+
+  @media (max-width: 380px) {
+    font-size: 32px;
   }
 `

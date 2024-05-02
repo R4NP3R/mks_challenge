@@ -5,7 +5,7 @@ export const LoadingIcon = () => {
     return <LoadingIconDiv>
             <LoadingIconImg 
             src={loading} 
-            alt="loading icon"    
+            alt="loading icon"  
             animate={{rotate: 360}}
             transition={{repeat: Infinity, duration: 2}}
             />

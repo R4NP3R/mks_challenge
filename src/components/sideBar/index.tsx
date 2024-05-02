@@ -29,7 +29,7 @@ export const SideBar = () => {
         alt="Close Cart Icon" />
       </S.SidebarHeader>
       <S.SidebarBody>
-        {Array.from({length: 2}).map((_, i) => (
+        {Array.from({length: 4}).map((_, i) => (
           <S.SidebarProduct key={i}>
           <S.CloseIcon 
           src={closeCartIcon}
@@ -39,8 +39,9 @@ export const SideBar = () => {
             <img src={appleWatch} alt="" />
           </S.SidebarProductImage>
           <S.SidebarProductName>Apple Watch Series 4 GPS</S.SidebarProductName>
+          <S.SidebarProductInfo>
           <S.SidebarProductQuantity>
-            <span>Qtd:</span>
+            <span className='text'>Qtd:</span>
             <S.SidebarProductQuantitySelector>
               <span>-</span>
               <span className='productQuantity'>1</span>
@@ -48,6 +49,7 @@ export const SideBar = () => {
             </S.SidebarProductQuantitySelector>
           </S.SidebarProductQuantity>
           <S.SidebarProductPrice>R$399</S.SidebarProductPrice>
+          </S.SidebarProductInfo>
         </S.SidebarProduct>
         ))}
       </S.SidebarBody>

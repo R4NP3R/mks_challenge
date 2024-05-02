@@ -1,13 +1,22 @@
 import styled from "styled-components";
 
 export const ProductSection = styled.section`
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: center;
   max-width: 1024px;
-  margin: 0 auto;
-  margin-top: 100px;
+  margin: 0px auto;
+  padding-top: 80px;
+  padding-bottom: 46px;
   column-gap: 22px;
   row-gap: 32px;
+
+  @media (max-width: 380px) {
+    width: 70%;
+    padding-top: 16px;
+    padding-bottom: 46px;
+  }
 `
 
 export const ProductContainer = styled.div`
@@ -17,6 +26,11 @@ export const ProductContainer = styled.div`
   height: 310px;
   border-radius: 8px;
   box-shadow: 0px 2px 8px 0px #00000022;
+
+  @media (max-width: 380px) {
+    width: 100%;
+    height: 330px;
+  }
 `
 
 export const ProductDetails = styled.div`
@@ -52,6 +66,10 @@ export const ProductDetails = styled.div`
       line-height: 16px;
 
     }
+
+    @media (max-width: 380px) {
+    justify-content: space-between;
+  }
   }
 
   .product-description {
@@ -69,8 +87,7 @@ export const ProductImage = styled.div`
   display: flex;
   justify-content: center;
   img {
-    width: 220;
-    height: 138px;
+    height: 140px;
   }
 `
 
