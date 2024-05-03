@@ -18,8 +18,8 @@ const renderProductSection = () => (
 
 describe('testing SideBar component', () => {
   it ('should Sidebar button is working', () => {
-    const { getByRole } = renderProductSection()
-    const sidebarButton = getByRole('cart-button')
+    const { getByTestId } = renderProductSection()
+    const sidebarButton = getByTestId('cart-button')
 
     fireEvent.click(sidebarButton)
 

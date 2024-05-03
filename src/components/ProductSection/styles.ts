@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import styled from "styled-components";
 
 export const ProductSection = styled.section`
@@ -19,17 +20,18 @@ export const ProductSection = styled.section`
   }
 `
 
-export const ProductContainer = styled.div`
+export const ProductContainer = styled(motion.div)`
   position: relative;
   background-color: #fff;
   width: 230px;
   height: 310px;
+  overflow: hidden;
   border-radius: 8px;
   box-shadow: 0px 2px 8px 0px #00000022;
 
   @media (max-width: 420px) {
     width: 100%;
-    height: 330px;
+    height: 320px;
   }
 `
 
@@ -91,7 +93,7 @@ export const ProductImage = styled.div`
   }
 `
 
-export const BuyButton = styled.button`
+export const BuyButton = styled(motion.button)`
   position: absolute;
   cursor: pointer;
   bottom: 0px;

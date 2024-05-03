@@ -1,11 +1,13 @@
+import { motion } from "framer-motion";
 import styled from "styled-components";
 
 interface Props {
   smallicon?: boolean
+  quantity?: number
 }
 
 export const CartButton = styled.button`
-  position: fixed;
+  position: absolute;
   z-index: 3;
   right: 65px;
   top: 25px;
@@ -39,6 +41,7 @@ export const CartButton = styled.button`
   }
 
   @media (max-width: 420px) {
+    position: fixed;
     width: 52px;
     height: 26px;
     padding:0px;
@@ -47,7 +50,7 @@ export const CartButton = styled.button`
   }
 `
 
-export const Sidebar = styled.div`
+export const Sidebar = styled(motion.div)`
   background-color: #0F52BA;
   position: fixed;
   right:0;
@@ -69,7 +72,7 @@ export const SidebarHeader = styled.div`
   align-items: center;
   margin-bottom: 64px;
   position: relative;
-  margin: 36px 0px 36px 36px;
+  margin: 36px 0px 0px 36px;
 
 
   span {
@@ -101,10 +104,11 @@ export const SidebarBody = styled.div`
   padding: 12px 0px;
   width: 100%;
   overflow-y: scroll;
-  height: 60vh;
+  overflow-x: hidden;
+  height: 65vh;
 `
 
-export const SidebarProduct = styled.div`
+export const SidebarProduct = styled(motion.div)`
   background-color: #fff;
   width: 400px;
   height: 105px;
@@ -126,7 +130,9 @@ export const SidebarProduct = styled.div`
 `
 
 export const SidebarProductImage = styled.div`
+  width: 80px;
   height: 100%;
+  margin-right: 12px;
   img {
     width: 100%;
     height: 100%;
@@ -140,7 +146,7 @@ export const SidebarProductImage = styled.div`
 `
 
 export const SidebarProductName = styled.span`
-  margin-left: 22px;
+  margin-right: 12px;
   color:#2C2C2C;
   width: 112px;
   font-weight: 400;
@@ -154,6 +160,7 @@ export const SidebarProductName = styled.span`
 export const SidebarProductInfo = styled.div`
   display: flex;
   align-items: center;
+  height: 100%;
 
   @media (max-width: 420px) {
     width: 100%;
@@ -162,11 +169,12 @@ export const SidebarProductInfo = styled.div`
 `
 
 export const SidebarProductQuantity = styled.div`
-  margin-left: 40px;
+  margin-right: 14px;
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
-  width: 50px;
+  justify-content: flex-start;
+  width: 60px;
+  height: 40px;
   .text {
     font-weight: 400;
     font-size: 10px;
@@ -182,7 +190,7 @@ export const SidebarProductQuantity = styled.div`
   
 `
 
-export const SidebarProductQuantitySelector = styled.div`
+export const SidebarProductQuantitySelector = styled.div<Props>`
   width: 60px;
   height: 24px;
   margin-top: 4px;
@@ -195,27 +203,20 @@ export const SidebarProductQuantitySelector = styled.div`
 
   button, span{
     cursor: pointer;
-    padding: 0px 6px;
+    padding: 0px 4px;
     background-color: transparent;
     text-align: center;
-    font-weight: 400;
+    font-weight: 700;
     font-size: 12px;
     line-height: 14px;
     border: none;
     width: 100%;
-
+  }
     @media (max-width: 420px) {
     font-size: 20px;
     line-height: 24px;
     padding: 0px 8px;
   }
-
-
-  button:hover {
-    background-color: green;
-  }
-  }
-
   .productQuantity {
     border-left: 1px solid #BFBFBF;
     border-right: 1px solid #BFBFBF;
@@ -229,10 +230,10 @@ export const SidebarProductQuantitySelector = styled.div`
 `
 
 export const SidebarProductPrice = styled.span`
-  margin-left: 40px;
   font-weight: 700;
   font-size: 14px;
   line-height: 18px;
+  width: 100%;
 
   @media (max-width: 420px) {
     width: 84px;
@@ -253,7 +254,7 @@ export const SidebarProductFooter = styled.div`
   left: 0px;
 `
 
-export const SidebarProductsTotalPrice = styled.div`
+export const SidebarProductsTotalPrice = styled(motion.div)`
   width: 100%;
   display: flex;
   padding: 36px 0px;
@@ -297,23 +298,23 @@ export const FinalizePurchaseButton = styled.button`
   }
 `
 
-export const CloseIcon = styled.img<Props>`
+export const CloseIcon = styled(motion.img)<Props>`
   cursor: pointer;
-  position: ${(props)=> props.smallicon ? 'absolute' : ''};
-  top: ${(props)=> props.smallicon ? '-5px' : ''};
-  right: ${(props)=> props.smallicon ? '-5px' : ''};
-  width: ${(props)=> props.smallicon  ? '18px' : '38px'};
+  position: ${(props) => props.smallicon ? 'absolute' : ''};
+  top: ${(props) => props.smallicon ? '-5px' : ''};
+  right: ${(props) => props.smallicon ? '-5px' : ''};
+  width: ${(props) => props.smallicon  ? '18px' : '38px'};
 
   @media (max-width: 420px) {
-    right: ${(props)=> props.smallicon ? '-5px' : ''};
-    width: ${(props)=> props.smallicon  ? '25px' : '45px'};
+    right: ${(props) => props.smallicon ? '-5px' : ''};
+    width: ${(props) => props.smallicon  ? '25px' : '45px'};
   }
 `
 
-export const OpacityBackground = styled.div`
+export const OpacityBackground = styled(motion.div)`
   position: fixed;
   top: 0;
-  background-color: rgba(0, 0, 0, 0.3);
+  background-color: rgba(0, 0, 0);
   z-index: 2;
   width: 100%;
   height: 100%;

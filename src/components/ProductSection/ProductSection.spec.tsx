@@ -16,7 +16,7 @@ describe('testing ProductionSection component', () => {
   it('should ProductionSection have a loading screen', () => {
     renderProductSection();
 
-    expect(screen.getByAltText('loading icon'))
+    expect(screen.getByTestId('loading'))
   })
 
   it('should ProductionSection have a product', async () => {

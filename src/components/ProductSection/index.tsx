@@ -3,27 +3,50 @@ import { motion } from 'framer-motion';
 import { useContext } from 'react';
 import { CartContext } from '../../context/CartContext';
 import { getProducts } from '../../hooks/getProducts';
-import { LoadingIcon } from '../Icons/LoadingIcon';
+import { Product } from '../../interface/Products';
+import { LoadingSkeleton } from '../SkeletonLoading';
 import * as S from './styles';
 
 
 export const ProductSection = () => {
   const {products, isLoading } = getProducts()
-  
   const { addProduct } = useContext(CartContext);
 
 
+  const productImageMotion = {
+    productRest: { scale: 1, y: 0},
+    productAnimation: { scale: 1.02, y: -10}
+  }
 
-  if (isLoading) { return <LoadingIcon/> }
-
-  return (
+  const addProductToCart = (product: Product) => {
+    addProduct({
+      id: product.id,
+      name: product.name,
+      brand: product.brand,
+      description: product.description,
+      photo: product.photo,
+      price: product.price,
+      quantity: 1
+    }, product.id)
+  }
     
+
+
+  if (isLoading) { return <LoadingSkeleton/> }
+  return (
     <S.ProductSection data-testid='list-products' className="container">
-    {products?.map((product)=> (
-      
-      <S.ProductContainer as={motion.div} whileHover={{scale: 1.1}} key={product.id}>
+    {products?.map((product)=> (      
+      <S.ProductContainer 
+      initial="productRest"
+      animate="productAnimation"
+      whileHover={{scale: 1.05, y: -20, boxShadow: "6px 6px 12px 0px #00000022"}}
+      transition={{duration: 0.3}} 
+      key={product.id}>
         <S.ProductDetails>
-        <S.ProductImage>
+        <S.ProductImage as={motion.div}  
+        variants={productImageMotion}
+        initial="productRest"
+        >
           <img src={product.photo} alt="Product Image" />
         </S.ProductImage>
           <div className='product-info'>
@@ -32,18 +55,11 @@ export const ProductSection = () => {
           </div>
           <p className="product-description">{product.description}</p>
         </S.ProductDetails>
-        <S.BuyButton 
-        onClick={() => addProduct({
-          id: product.id,
-          name: product.name,
-          brand: product.brand,
-          description: product.description,
-          photo: product.photo,
-          price: product.price,
-          quantity: 1
-        }, product.id)}>
-          <img src="src/assets/shopping-bag.svg" alt="" />
-          <p>COMPRAR</p>
+        <S.BuyButton
+          whileHover={{scale: 1.1}}
+          onClick={() => addProductToCart(product)}>
+            <img src="src/assets/shopping-bag.svg" alt="" />
+            <p>COMPRAR</p>
         </S.BuyButton>
       </S.ProductContainer>
 
