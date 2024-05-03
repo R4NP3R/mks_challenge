@@ -1,6 +1,4 @@
 import { useContext, useEffect, useState } from 'react';
-import cartIcon from '../../assets/CartIcon.svg';
-import closeCartIcon from '../../assets/CloseIcon.svg';
 import { CartContext } from '../../context/CartContext';
 import { Product } from '../../interface/Products';
 import * as S from './styles';
@@ -37,8 +35,8 @@ export const SideBar = () => {
   
   if (!sideBarOpen) {
     return (
-      <S.CartButton onClick={() => setSideBarOpen(true)}>
-      <img src={cartIcon} alt="Cart Icon" />
+      <S.CartButton role='cart-button' onClick={() => setSideBarOpen(true)}>
+      <img src='src/assets/CartIcon.svg' alt="Cart Icon" />
       <span>{totalItensCart()}</span>
     </S.CartButton>
     )
@@ -54,7 +52,7 @@ export const SideBar = () => {
           de Compras          
         </span>
         <S.CloseIcon onClick={() => setSideBarOpen(false)}
-            src={closeCartIcon} 
+            src='src/assets/CloseIcon.svg' 
             alt="Close Cart" />
       </S.SidebarHeader>
       <S.SidebarBody>
@@ -62,7 +60,7 @@ export const SideBar = () => {
           <S.SidebarProduct key={i}>
           <S.CloseIcon 
             smallicon 
-            src={closeCartIcon}  
+            src='src/assets/CloseIcon.svg' 
             onClick={()=> removeProduct(product.id)} 
           />
           <S.SidebarProductImage>

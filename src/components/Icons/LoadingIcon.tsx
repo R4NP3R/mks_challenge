@@ -1,11 +1,10 @@
 import { motion } from 'framer-motion';
-import loading from '../../assets/loader-circle.svg';
 import { LoadingIconDiv } from "./styles";
 
 export const LoadingIcon = () => {
     return <LoadingIconDiv>
             <motion.img 
-            src={loading} 
+            src='src/assets/loader-circle.svg'
             alt="loading icon"
             initial={{rotate: 0, scale: 2}}
             animate={{rotate: 360}}

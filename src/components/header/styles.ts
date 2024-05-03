@@ -2,7 +2,6 @@ import styled from "styled-components";
 
 
 export const Header = styled.header`
-  position:fixed;
   width: 100%;
   z-index: 1;
   background-color: #0F52BA;
@@ -13,6 +12,7 @@ export const Header = styled.header`
   justify-content: space-between;
 
   @media (max-width: 420px) {
+    position:fixed;
     height: 48px;
     padding: 30px 20px;
   }

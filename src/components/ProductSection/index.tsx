@@ -1,6 +1,6 @@
 
+import { motion } from 'framer-motion';
 import { useContext } from 'react';
-import shoppingBag from '../../assets/shopping-bag.svg';
 import { CartContext } from '../../context/CartContext';
 import { getProducts } from '../../hooks/getProducts';
 import { LoadingIcon } from '../Icons/LoadingIcon';
@@ -18,10 +18,10 @@ export const ProductSection = () => {
 
   return (
     
-    <S.ProductSection className='container'>
+    <S.ProductSection data-testid='list-products' className="container">
     {products?.map((product)=> (
       
-      <S.ProductContainer key={product.id}>
+      <S.ProductContainer as={motion.div} whileHover={{scale: 1.1}} key={product.id}>
         <S.ProductDetails>
         <S.ProductImage>
           <img src={product.photo} alt="Product Image" />
@@ -30,7 +30,7 @@ export const ProductSection = () => {
             <p>{product.name}</p>
             <span>R${Math.trunc(product.price)}</span>
           </div>
-          <p className='product-description'>{product.description}</p>
+          <p className="product-description">{product.description}</p>
         </S.ProductDetails>
         <S.BuyButton 
         onClick={() => addProduct({
@@ -42,7 +42,7 @@ export const ProductSection = () => {
           price: product.price,
           quantity: 1
         }, product.id)}>
-          <img src={shoppingBag} alt="" />
+          <img src="src/assets/shopping-bag.svg" alt="" />
           <p>COMPRAR</p>
         </S.BuyButton>
       </S.ProductContainer>
