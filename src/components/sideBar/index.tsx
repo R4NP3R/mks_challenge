@@ -57,7 +57,7 @@ export const SideBar = () => {
     return (
       <S.CartButton data-testid='cart-button' onClick={() => setSideBarOpen(true)}>
         <img
-        src='src/assets/CartIcon.svg' 
+        src='src/images/CartIcon.svg' 
         alt="Cart Icon" />        
         <AnimatePresence initial={false}>
         <motion.span 
@@ -95,7 +95,7 @@ export const SideBar = () => {
             </motion.span>
             <S.CloseIcon
               onClick={() => {setSideBarOpen(false)}}
-              src='src/assets/CloseIcon.svg' 
+              src='src/images/CloseIcon.svg' 
               alt="Close Cart"
               variants={basicAnimations}
               initial="hidden" 
@@ -126,7 +126,7 @@ export const SideBar = () => {
               >
               <S.CloseIcon 
                 smallicon 
-                src='src/assets/CloseIcon.svg' 
+                src='src/images/CloseIcon.svg' 
                 onClick={()=> removeProduct(product.id)} 
               />
               <S.SidebarProductImage>

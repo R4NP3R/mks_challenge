@@ -58,7 +58,7 @@ export const ProductSection = () => {
         <S.BuyButton
           whileHover={{scale: 1.1}}
           onClick={() => addProductToCart(product)}>
-            <img src="src/assets/shopping-bag.svg" alt="" />
+            <img src="src/images/shopping-bag.svg" alt="" />
             <p>COMPRAR</p>
         </S.BuyButton>
       </S.ProductContainer>
