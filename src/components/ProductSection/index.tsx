@@ -39,7 +39,7 @@ export const ProductSection = () => {
       <S.ProductContainer 
       initial="productRest"
       animate="productAnimation"
-      whileHover={{scale: 1.05, y: -20, boxShadow: "6px 6px 12px 0px #00000022"}}
+      whileHover={{scale: 1.01, y: -5, boxShadow: "6px 6px 12px 0px #00000022"}}
       transition={{duration: 0.3}} 
       key={product.id}>
         <S.ProductDetails>

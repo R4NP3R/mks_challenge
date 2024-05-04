@@ -1,6 +1,8 @@
 import { AnimatePresence, motion } from 'framer-motion';
 import { useContext, useEffect, useState } from 'react';
 import { CartContext } from '../../context/CartContext';
+import cartIcon from '../../images/CartIcon.svg';
+import closeIcon from '../../images/CloseIcon.svg';
 import { Product } from '../../interface/Products';
 import * as S from './styles';
 
@@ -57,7 +59,7 @@ export const SideBar = () => {
     return (
       <S.CartButton data-testid='cart-button' onClick={() => setSideBarOpen(true)}>
         <img
-        src='src/images/CartIcon.svg' 
+        src={cartIcon}
         alt="Cart Icon" />        
         <AnimatePresence initial={false}>
         <motion.span 
@@ -95,7 +97,7 @@ export const SideBar = () => {
             </motion.span>
             <S.CloseIcon
               onClick={() => {setSideBarOpen(false)}}
-              src='src/images/CloseIcon.svg' 
+              src={closeIcon}
               alt="Close Cart"
               variants={basicAnimations}
               initial="hidden" 
@@ -126,7 +128,7 @@ export const SideBar = () => {
               >
               <S.CloseIcon 
                 smallicon 
-                src='src/images/CloseIcon.svg' 
+                src={closeIcon}
                 onClick={()=> removeProduct(product.id)} 
               />
               <S.SidebarProductImage>
