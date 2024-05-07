@@ -42,16 +42,20 @@ export const ProductSection = () => {
   return (
     <div>
     <S.ProductOrderBy className="container">
+      <div>
       <span>Ordernar por:</span>
       <select onChange={(e) => setOrderBy(e.target.value)}>
         <option value="ASC">Crescente</option>
         <option value="DESC">Decrescente</option>
       </select>
+      </div>
+      <div>
       <span>Organizar por:</span>
       <select onChange={(e) => setSortBy(e.target.value)}>
         <option value="name">Nome</option>
         <option value="price">Preço</option>
       </select>
+      </div>
     </S.ProductOrderBy>
     <S.ProductSection data-testid="list-products">
     <AnimatePresence>

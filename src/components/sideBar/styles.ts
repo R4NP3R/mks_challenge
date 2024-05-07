@@ -55,15 +55,9 @@ export const Sidebar = styled(motion.div)`
   position: fixed;
   right:0;
   top: 0;
-  width: 490px;
   height: 100%;
   z-index: 3;
   box-shadow: -5px 0px 6px 0px #00000021;
-
-  @media (max-width: 420px) {
-    grid-template-columns: 1fr;
-    width: 90%;
-  }
 `
 
 export const SidebarHeader = styled.div`

@@ -14,6 +14,13 @@ export const ProductOrderBy = styled.div`
     margin-left: 12px;
     margin-right: 4px;
   }
+
+  @media (max-width: 420px) {
+    padding-top: 76px;
+    display: flex;
+
+    width: 80%;
+  }
 `
 
 export const ProductSection = styled.section`
@@ -30,7 +37,7 @@ export const ProductSection = styled.section`
 
   @media (max-width: 420px) {
     width: 70%;
-    padding-top: 86px;
+    padding-top: 36px;
     padding-bottom: 46px;
   }
 `

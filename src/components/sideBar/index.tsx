@@ -1,3 +1,4 @@
+import { useMediaQuery } from '@mui/material';
 import { AnimatePresence, motion } from 'framer-motion';
 import { useContext, useEffect, useState } from 'react';
 import { CartContext } from '../../context/CartContext';
@@ -13,10 +14,13 @@ export const SideBar = () => {
   const [productsInfo, setProductsInfo] = useState(1);
   
 
+  const isMobile = useMediaQuery('(max-width: 420px)')
+
   useEffect(()=> {
     setCartProductsQuantity(totalItensCart())
   }, [productsInfo, cartProducts])
 
+  
 
   function totalItensCart() {
     let sum = 0
@@ -51,7 +55,7 @@ export const SideBar = () => {
 
   const sidebarAnimations = {
     close: {opacity: 0, width: 0, height: 0},
-    open: {opacity: 1, width: 490, height: "100%"}
+    open: isMobile ? {opacity: 1, width: "90%",  height: "100%"} : {opacity: 1, width: 490, height: "100%"}
   }
   
 
