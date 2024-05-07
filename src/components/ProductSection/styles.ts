@@ -1,6 +1,21 @@
 import { motion } from "framer-motion";
 import styled from "styled-components";
 
+export const ProductOrderBy = styled.div`
+  max-width: 1024px;
+  margin: 0px auto;
+  padding-top: 40px;  
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  text-align: center;
+
+  span {
+    margin-left: 12px;
+    margin-right: 4px;
+  }
+`
+
 export const ProductSection = styled.section`
   display: flex;
   flex-wrap: wrap;
@@ -8,7 +23,7 @@ export const ProductSection = styled.section`
   align-content: center;
   max-width: 1024px;
   margin: 0px auto;
-  padding-top: 80px;
+  padding-top: 40px;
   padding-bottom: 46px;
   column-gap: 22px;
   row-gap: 32px;
@@ -122,3 +137,5 @@ export const BuyButton = styled(motion.button)`
 
 
 `
+
+

@@ -1,6 +1,6 @@
 
-import { motion } from 'framer-motion';
-import { useContext } from 'react';
+import { AnimatePresence, motion } from 'framer-motion';
+import { useContext, useEffect, useState } from 'react';
 import { CartContext } from '../../context/CartContext';
 import { getProducts } from '../../hooks/getProducts';
 import { Product } from '../../interface/Products';
@@ -9,14 +9,20 @@ import * as S from './styles';
 
 
 export const ProductSection = () => {
-  const {products, isLoading } = getProducts()
   const { addProduct } = useContext(CartContext);
+  const [orderBy, setOrderBy] = useState('ASC')
+  const [sortBy, setSortBy] = useState('name')
+  const {products, isLoading, refetch } = getProducts(sortBy, orderBy)
 
 
   const productImageMotion = {
     productRest: { scale: 1, y: 0},
     productAnimation: { scale: 1.02, y: -10}
   }
+
+  useEffect(()=> {
+    refetch()
+  }, [orderBy, sortBy])
 
   const addProductToCart = (product: Product) => {
     addProduct({
@@ -34,11 +40,25 @@ export const ProductSection = () => {
 
   if (isLoading) { return <LoadingSkeleton/> }
   return (
-    <S.ProductSection data-testid='list-products' className="container">
+    <div>
+    <S.ProductOrderBy className="container">
+      <span>Ordernar por:</span>
+      <select onChange={(e) => setOrderBy(e.target.value)}>
+        <option value="ASC">Crescente</option>
+        <option value="DESC">Decrescente</option>
+      </select>
+      <span>Organizar por:</span>
+      <select onChange={(e) => setSortBy(e.target.value)}>
+        <option value="name">Nome</option>
+        <option value="price">Preço</option>
+      </select>
+    </S.ProductOrderBy>
+    <S.ProductSection data-testid="list-products">
+    <AnimatePresence>
     {products?.map((product)=> (      
       <S.ProductContainer 
-      initial="productRest"
-      animate="productAnimation"
+      initial="productAnimation"
+      animate="productRest"
       whileHover={{scale: 1.01, y: -5, boxShadow: "6px 6px 12px 0px #00000022"}}
       transition={{duration: 0.3}} 
       key={product.id}>
@@ -62,8 +82,9 @@ export const ProductSection = () => {
             <p>COMPRAR</p>
         </S.BuyButton>
       </S.ProductContainer>
-
     ))}
+    </AnimatePresence>
     </S.ProductSection>
+    </div>
   )
 }

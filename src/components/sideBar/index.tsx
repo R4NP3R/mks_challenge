@@ -9,22 +9,14 @@ import * as S from './styles';
 export const SideBar = () => {
   const [sideBarOpen, setSideBarOpen] = useState(false);
   const {cartProducts, removeProduct, handleUpdateItem} = useContext(CartContext)
-  const [productsInfo, setProductInfo] = useState(1);
   const [cartProductsQuantity, setCartProductsQuantity] = useState(0)
+  const [productsInfo, setProductsInfo] = useState(1);
+  
 
-  // used to update cart values
   useEffect(()=> {
     setCartProductsQuantity(totalItensCart())
   }, [productsInfo, cartProducts])
-  
-  function totalPrice() {
-    let sum = 0
-    
-    for (let product of cartProducts) {
-      sum += product.price * product.quantity
-    }
-    return sum
-  }
+
 
   function totalItensCart() {
     let sum = 0
@@ -35,12 +27,22 @@ export const SideBar = () => {
     return sum
   }
 
+  function totalPrice() {
+    let sum = 0
+    
+    for (let product of cartProducts) {
+      sum += product.price * product.quantity
+    }
+    return sum
+  }
+
+
+
   function updateProductInfo(product: Product, method: string) {    
     handleUpdateItem(product, method)
-    setProductInfo((product) => product + 1)
+    setProductsInfo((product) => product + 1)
   }
-  
-  
+    
 
   const basicAnimations = {
     visible: { opacity: 1 },
@@ -76,7 +78,9 @@ export const SideBar = () => {
 
   return (
     <AnimatePresence>
-        <S.Sidebar 
+        {sideBarOpen && (
+          <>
+          <S.Sidebar 
         key="sidebar"
         variants={sidebarAnimations}
         initial="close"
@@ -178,7 +182,9 @@ export const SideBar = () => {
             </S.FinalizePurchaseButton>
           </S.SidebarProductFooter>
         </S.Sidebar>
-    <S.OpacityBackground initial={{opacity: 0}} animate={{opacity: 0.3}} transition={{duration: 1}} onClick={() => {setSideBarOpen(false)}}/>
+        <S.OpacityBackground initial={{opacity: 0}} animate={{opacity: 0.3}} transition={{duration: 1}} onClick={() => {setSideBarOpen(false)}}/>
+          </>
+        )}
     </AnimatePresence>  
   )
 }
